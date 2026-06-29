@@ -1,4 +1,4 @@
-export async function pokeData(numOfCards = 10) {
+export async function pokeData(numOfCards) {
 
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=1000`);
     // response is a promise, so we change to Json first 
@@ -29,7 +29,8 @@ export async function pokeData(numOfCards = 10) {
                 id: data.id,
                 name: data.name,
                 image: data.sprites.other['official-artwork'].front_default || data.sprites.front_default,
-                clicked: false
+                // we dont need a clicked as i added reveled on Game.jsx
+                // clicked: false
             };
         })
     );
