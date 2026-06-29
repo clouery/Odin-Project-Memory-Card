@@ -47,7 +47,10 @@ function Game() {
     }
 
     useEffect(() => {
+        if(!difficulty) return;
+
         async function loadPokemon() {
+            setTotalMatch(0);
             const data = await pokeData(numPoke);
             console.log(data);
 
